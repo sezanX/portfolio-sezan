@@ -1,3 +1,3 @@
 # portfolio-sezan
 
-Live link -
+Live link - https://sezanx.github.io/portfolio-sezan/
