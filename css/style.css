@@ -180,7 +180,8 @@ section .title::after{
 .home{
     display: flex;
 /*    background: black;*/
-   background: url("../images/banner.jpg") no-repeat center;
+ //  background: url("../images/banner.jpg") no-repeat center;
+ background: url("https://i.postimg.cc/V6LGmS0H/Untitled-design-2.png") no-repeat center;
     height: 100vh;
     color: #fff;
     min-height: 500px;
