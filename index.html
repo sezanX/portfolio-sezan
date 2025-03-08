@@ -1823,8 +1823,58 @@
                         <div class="contact-inner">
                             <div class="section-head section-head-one-side text-align-left tmp-scroll-trigger tmp-fade-in animation-order-1">
                                 <span class="title">GET IN TOUCH</span>
-                            </div>
-                            <div class="contact-form">
+                            </div><!-- ... existing code ... -->
+<div class="contact-form">
+    <div id="form-messages"></div>
+    <!-- <form class="tmp-dynamic-form" id="contact-form" action="https://formspree.io/f/sezanx.official@gmail.com" method="POST"> -->
+        <form class="tmp-dynamic-form" id="contact-form" action="https://formspree.io/f/xanewala" method="POST">
+        <div class="contact-form-wrapper row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <input class="input-field" name="name" id="contact-name" placeholder="Your Name" type="text" required>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <input class="input-field" name="phone" id="contact-phone" placeholder="Phone Number" type="number" required>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <input class="input-field" id="contact-email" name="email" placeholder="Your Email" type="email" required>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <input class="input-field" type="text" id="subject" name="subject" placeholder="Subject">
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <textarea class="input-field" placeholder="Your Message" name="message" id="contact-message" required></textarea>
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <div class="tmp-button-here">
+                    <button class="tmp-btn hover-icon-reverse radius-round w-100" type="submit">
+                        <span class="icon-reverse-wrapper">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-icon"><i class="fa-sharp fa-regular fa-arrow-right"></i></span>
+                            <span class="btn-icon"><i class="fa-sharp fa-regular fa-arrow-right"></i></span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- ... existing code ... -->
+                            <!-- <div class="contact-form">
                                 <div id="form-messages" class="error"></div>
                                 <form class="tmp-dynamic-form" id="contact-form" method="POST" action="http://themes-park.net/product/html/reeni/mailer.php">
                                     <div class="contact-form-wrapper row">
@@ -1871,7 +1921,7 @@
                                         </div>
                                     </div>
                                 </form>
-                            </div>
+                            </div> -->
 
                         </div>
                     </div>
@@ -3143,6 +3193,42 @@
             }
 
         );
+    </script>
+
+
+<!-- Custom JS for Contact form  -->
+ <!-- ... existing code ... -->
+    <!-- ... existing code ... -->
+    <script>
+        const form = document.getElementById('contact-form');
+        const formMessages = document.getElementById('form-messages');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Create FormData object and add recipient email
+            const formData = new FormData(form);
+            formData.append('recipient', 'sezanx.official@gmail.com');
+
+            // Send to Formspree
+            fetch('https://formspree.io/f/xanewala', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                formMessages.className = 'success';
+                formMessages.textContent = 'Thank you! Your message has been sent.';
+                form.reset();
+            })
+            .catch(error => {
+                formMessages.className = 'error';
+                formMessages.textContent = 'Oops! There was a problem sending your message.';
+            });
+        });
     </script>
 </body>
 </html>
